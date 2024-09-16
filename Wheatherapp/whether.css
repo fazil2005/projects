@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: outfit;
+    
+}
+body{
+    background-image:url('https://cdn.wallpapersafari.com/16/51/qzgYOL.jpg');
+}
+
+.card{
+    width: 90%;
+    max-width: 470px;
+    margin:28px auto 0;
+    border-radius: 20px;
+    border: 1px solid white;
+    padding: 30px 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    
+}
+.heading{
+   text-align: center;
+    font-size: 40px;
+   font-style: italic;
+    margin-top: 30px;
+    color: white;
+}
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.search input{
+    border: none;
+    outline: none;
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 1px solid white;
+    height: 60px;
+    border-radius: 60px;
+    flex: 1;
+    margin-right: 6px;
+    font-size: 19px;
+    color: white;
+    cursor: pointer;
+}
+.search input::placeholder{
+    color: white;
+}
+.search button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    
+    cursor: pointer;
+    color: white;
+    
+}
+.search button img{
+    width: 16px;
+
+}
+.whether-icon{
+    width: 180px;
+    margin-top: 32px;
+
+}
+.whether h1{
+    font-size: 80px;
+    font-weight: 500;
+}
+.whether h2{
+    font-size: 46px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    margin-top: 50px;
+}
+.colums{
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.colums img{
+    width: 40px;
+    margin-right: 10px;
+   
+}
+.humidity, .wind{
+    font-size: 20px;
+    margin-top: -6px;
+
+}
+.whether{
+    display: none;
+}
+
+.error p {
+    font-size: 19px;
+    margin-top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: red;
+    animation: error-animation 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+.error{
+    display: none;
+}
+@keyframes error-animation {
+    0% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+    }
+
+    .search input {
+        margin-bottom: 10px; 
+    }
+
+    .weather h1 {
+        font-size: 50px; 
+    }
+
+    .weather h2 {
+        font-size: 36px; 
+    }
+
+}
+@media (max-width:454px){
+    .search input{
+        border: none;
+        outline: none;
+        padding: 10px 15px;
+        background-color: transparent;
+        border: 1px solid black;
+        height: 50px;
+        border-radius: 60px;
+        flex: 1;
+        margin-right: 6px;
+        font-size: 19px;
+        width: 60%;
+    }
+    .search button{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        border-radius: 50%;
+        width: 60px;
+        height: 50px;
+        
+        cursor: pointer;
+        
+    }
+    .whether-icon{
+        width: 100px;
+        margin-top: 32px;
+    
+    }
+    .whether h1{
+        font-size: 40px;
+        font-weight: 500;
+    }
+    .whether h2{
+        font-size: 26px;
+        font-weight: 400;
+        margin-top: -10px;
+    }
+    .colums img{
+        width: 30px;
+      
+    }
+    .humidity, .wind{
+        font-size: 14px;
+        margin-top: -6px;
+        gap: 20px;
+    
+    }
+}
+@media (max-width:378px){
+    .details{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+
+    }
+    .colums{
+        margin-top: 30px;
+    }
+    .search button{
+        width: 30%;
+    }
+   .whether-icon {
+    margin-bottom: 30px;
+   }
+    
+
+}

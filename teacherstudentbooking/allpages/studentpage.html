@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Page</title>
+    <link rel="stylesheet" href="../style.css">
+  </head>
+  <body>
+
+    <div class="studentpage">
+        <div class="studentappointmentrow">
+            <h1 class="headingappoiments">Search for Teachers</h1>
+            <input type="text" id="searchInput" placeholder="Search for teachers" />
+            <ul id="teacherList"></ul>
+            <p id="noTeachersMessage" style="display:none;">Teacher is not available</p>
+            <button id="searchButton">Search</button>
+            
+        </div>
+        <div class="appoinmentsstatus">
+            <h2>Appointment status</h2>
+            <ul id="appointmentsList"></ul>
+         
+        
+          <p>&copy; 2024 Your School Name. All rights reserved.</p>
+        </div>
+    </div>
+
+    
+
+   
+      
+        
+    
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        get,
+        set,
+      } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyAnbX2WB8hpxd46wPlop0aXMsU4bVqcAZc",
+        authDomain: "teacherstudentbooking.firebaseapp.com",
+        databaseURL:
+          "https://teacherstudentbooking-default-rtdb.firebaseio.com",
+        projectId: "teacherstudentbooking",
+        storageBucket: "teacherstudentbooking.appspot.com",
+        messagingSenderId: "704160360811",
+        appId: "1:704160360811:web:f221415bf3f71ac805442e",
+        measurementId: "G-Q5WXBMHL3E",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      const studentName = localStorage.getItem("studentname");
+      if (!studentName) {
+        window.location.href = "studentlogin.html";
+      }
+
+      const searchTeachers = () => {
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    const teacherList = document.getElementById("teacherList");
+    const noTeachersMessage = document.getElementById("noTeachersMessage");
+     teacherList.innerHTML = ""; // Clear existing list
+        noTeachersMessage.style.display = "none"; // Hide message initially
+
+    const teachersRef = ref(db, "addTeacher");
+    get(teachersRef).then((snapshot) => {
+            let foundTeachers = false; // Flag to track if any teachers match the query
+
+            if (snapshot.exists()) {
+                snapshot.forEach((teacherSnapshot) => {
+                    const teacherData = teacherSnapshot.val();
+                    const teacherName = teacherData.TeacherName;
+                    if (teacherName.toLowerCase().includes(query)) {
+                        foundTeachers = true; // Set the flag to true if a match is found
+
+                        const listItem = document.createElement("li");
+                        listItem.textContent = `You want to book an appointment with Tr: ${teacherName}?`;
+
+                        const requestButton = document.createElement("button");
+                        requestButton.textContent = "Request Appointment";
+                        requestButton.onclick = () => requestAppointment(teacherName);
+                        listItem.appendChild(requestButton);
+
+                        teacherList.appendChild(listItem);
+                    }
+                });
+
+                // If no teachers were found, display a message
+                if (!foundTeachers) {
+                    noTeachersMessage.style.display = "block";
+                }
+            } else {
+                teacherList.textContent = "No teachers found.";
+            }
+        })
+        .catch((error) => {
+            console.error("Error fetching teacher data:", error);
+        });
+};
+
+
+      const requestAppointment = (teacherName) => {
+        const appointmentId = Date.now().toString();
+        const appointmentRef = ref(db, "appointments/" + appointmentId);
+
+        set(appointmentRef, {
+          studentName: studentName,
+          teacherName: teacherName,
+          status: "pending",
+        })
+          .then(() => {
+            alert("Appointment requested successfully.");
+            loadAppointments();
+          })
+          .catch((error) => {
+            console.error("Error requesting appointment:", error);
+          });
+      };
+
+      const loadAppointments = () => {
+        const appointmentsList = document.getElementById("appointmentsList");
+        appointmentsList.innerHTML = ""; // Clear existing list
+
+        const appointmentsRef = ref(db, "appointments");
+        get(appointmentsRef)
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              snapshot.forEach((appointmentSnapshot) => {
+                const appointmentData = appointmentSnapshot.val();
+                if (appointmentData.studentName === studentName) {
+                  const listItem = document.createElement("li");
+                  listItem.textContent = `Appointment with Teacher: ${appointmentData.teacherName} - Status: ${appointmentData.status}`;
+                  if (appointmentData.status === "approved") {
+                    listItem.textContent += ` - Date: ${appointmentData.appointmentDate} - Time: ${appointmentData.appointmentTime}`;
+                  }
+                  appointmentsList.appendChild(listItem);
+                }
+              });
+            } else {
+              appointmentsList.textContent = "No appointments found.";
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching appointment data:", error);
+          });
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Set up the event listener for the search button
+        document
+          .getElementById("searchButton")
+          .addEventListener("click", searchTeachers);
+        loadAppointments();
+      });
+
+
+
+      
+    </script>
+  </body>
+</html>

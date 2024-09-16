@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+*{
+    margin: 0;
+    font-family:outfit;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container{
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    min-height: 1000px;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+    margin: 50px;
+}
+.container .leftside{
+    position: relative;
+    background: black;
+    padding: 40px;
+}
+.profile{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid white;
+}
+.profile .img{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.profile .img img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.profile h2{
+    color: #fff;
+    font-size: 1.5rem;
+    margin-top: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+    line-height: 1.4em;
+}
+.profile h2 span{
+    font-size: 0.8em;
+    font-weight: 300;
+}
+.contactme{
+    padding-top: 30px;
+}
+.contactheader{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.contactme ul{
+    position: relative;
+}
+.contactme ul li{
+    position: relative;
+    list-style: none;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.contactme ul li .icon{
+    display: inline-block;
+    width: 30px;
+    font-size: 18px;
+    color: dodgerblue;
+    
+}
+.contactme ul li span{
+    color: #fff;
+    font-weight: 300;
+
+}
+.contactme.education li{
+    margin-bottom: 15px;
+    
+}
+.contactme.education h5{
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+.contactme.education h4:nth-child(2){
+    color: #fff;
+    font-weight: 700;
+}
+.contactme.education h4:nth-child(3){
+    color: #fff;
+    font-weight: 300;
+    font-size: 0.8em; 
+}
+.contactme.language .percent{
+    position: relative;
+    width: 100%;
+    height: 6px;
+    background-color: dodgerblue;
+    display: block;
+    margin-top: 5px;
+}
+.contactme.language .percent div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #03a9;
+}
+
+
+.container .rightside{
+    position: relative;
+    background-color: whitesmoke;
+    padding: 40px;
+}
+.about{
+    margin-bottom: 50px; 
+}
+
+.profile-title{
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+.about p{
+    color: black;
+    font-weight: 300;
+    font-size: 0.8em;
+    line-height: 1.2rem;
+    text-transform: uppercase;
+}
+.about .box{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+.about .year{
+    min-width: 150px;
+}
+.about .year h5{
+    text-transform: uppercase;
+    color: gray;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.about .box .text h4{
+    text-transform: uppercase;
+    color: dodgerblue;
+    font-size: 16px;
+    margin-bottom: 6px;
+
+}
+.skills .box{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    justify-content: center;
+    align-items: center;
+
+}
+.skills .box h4{
+    text-transform: uppercase;
+    color: dodgerblue;
+    font-weight: 500;
+}
+.skills .percent{
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: dodgerblue;
+}
+.skills .percent div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: #03a9;
+}
+.myport{
+    margin-top: 30px;
+}
+.myport button{
+    background: white;
+    color: black;
+    padding: 10px 10px;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 300;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    box-shadow: 0 1px 6px white;
+
+
+}
+.myport button:hover{
+    background-color: grey;
+}
+@media (max-width:1000px) {
+    .container{
+        margin: 10px;
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+}
+@media (max-width:600px) {
+    .about .box{
+        flex-direction: column;
+    }
+    .about .box .year{
+        margin-bottom: 5px;
+    }
+    
+}

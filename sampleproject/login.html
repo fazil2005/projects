@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h6>See Why We're the Best Choice</h6>
+            <div class="imagediv">
+                <i class="fa-solid fa-wallet"></i>
+                <p> Benefit from free delivery on all orders within a 5km radius.</p>
+            </div>
+            <div class="playstorelinks">
+                <p>Connect with Us Here</p>
+                <div class="itagdivs">
+                    <i class="fa-brands fa-google-play"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                
+                
+            </div>
+
+
+        </div>
+        <div class="right">
+            <h2>Login/Signup</h2>
+            <h3>UsingOTP</h3>
+            <form class="inputdiv" id="loginform">
+                <input type="text" placeholder="Enter Phone number/ Email Id" id="phone"> 
+               
+                    <button type="submit" id="sign-in-button">Continue</button>
+
+            </form>
+            <div class="privacypolicy">
+                <p>By continuing, I accept TCP - bigbasket’s Terms and Conditions & Privacy.  This site is protected by reCAPTCHA and the Google - Privacy Policy and & Terms of Service apply.</p>
+            </div>
+
+        </div>
+    </div>
+
+  <script>
+    document.getElementById("sign-in-button").addEventListener("click",(e)=>{
+        e.preventDefault()
+        window.location.href="index.html"
+    })
+
+  </script>
+</body>
+</html>

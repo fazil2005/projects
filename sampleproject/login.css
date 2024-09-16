@@ -1,0 +1,437 @@
+body{
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+  
+}
+
+p,h6,h2,h3{
+    padding: 0;
+    margin: 0;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 130px auto;
+    width: 500px;
+  
+    align-items: center;
+  
+    
+}
+
+.left {
+    background-color: white; /* Changed from whitesmoke to red */
+    width: 70%; /* Adjust width as needed */
+    height: 310px;
+    text-align: center;
+    border-radius: 20px 0px 0px 20px;
+    box-shadow: 0px 3px 5px 2px gray;
+  
+}
+.left h6{
+    margin-top: 20px;
+   text-transform: uppercase;
+   color: grey;
+ 
+   font-size: 8px;
+  
+
+   
+}
+.imagediv{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    justify-content: center;
+ 
+}
+.imagediv p{
+    font-size: 10px;  
+    font-weight: bold;
+    width: 130px;
+    margin-left: 28px;
+    margin-top: 15px;
+}
+.imagediv i{
+    font-size: 40px;
+}
+
+.playstorelinks{
+    margin-top:-190px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid wheat;
+    flex-direction: column;
+
+}
+.playstorelinks i{
+    font-size: 20px;
+    border-radius: 4px;
+    padding: 4px;
+}
+.playstorelinks p{
+    text-transform: uppercase;
+    font-weight: lighter;
+    margin-top: 40px;
+    font-style: italic;
+    list-style: decimal;
+    font-size: 14px;
+}
+.itagdivs{
+    display: flex;
+    justify-content: center;
+}
+.itagdivs i{
+    margin: 10px;
+}
+.right {
+    background-color: dodgerblue; /* Set background color to black */
+    color: white; 
+    width: 100%;
+    height: 270px;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 0px 20px 20px 0px;
+    box-shadow: 0px 3px 5px 2px gray;
+}
+.right h2{
+    text-align: left;
+}
+.right h3{
+    text-transform: uppercase;
+    border-bottom: 2px solid yellow;
+    text-align: left;
+    width: 20px;
+}
+.inputdiv{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.inputdiv input{
+    border-radius: 7px;
+    padding: 10px;
+    margin: 0px 10px;
+    outline: none;
+    border: none;
+}
+
+
+
+.inputdiv  button{
+    border-radius: 7px;
+    padding: 10px;
+    margin: 0px 10px;
+    margin-top:10px;
+    background-color: darkred;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: whitesmoke;
+    cursor: pointer;
+    
+}
+.inputdiv button:hover{
+    background-color: rgba(139, 0, 0, 0.5);
+}
+.privacypolicy{
+margin-top: 20px;
+display: flex;
+justify-content: center;
+}
+.privacypolicy p{
+    font-size: 10px;
+    width: 200px;
+}
+
+
+
+
+
+/* General Styles */
+.navcontainer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logoAndSearch {
+    display: flex;
+    align-items: center; /* Center vertically */
+    margin-top: 20px;
+}
+
+.logoAndSearch img {
+    width: 100px;
+    height: 100px;
+}
+
+.logoAndSearch input {
+    width: 300px;
+    height: 30px;
+    margin: 0 10px; /* Adjusted margin */
+    border-radius: 0;
+    border: none;
+    outline: none;
+}
+
+.logoAndSearch button {
+    width: 100px;
+    height: 30px;
+    background-color: dodgerblue;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0;
+    text-transform: uppercase;
+    color: whitesmoke;
+    cursor: pointer;
+    margin: 0; /* Adjusted margin */
+}
+
+.navbuttons {
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    margin-top: 40px;
+}
+
+.navbuttons button {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    margin: 0 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    height: 20px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.navbuttons button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: dodgerblue;
+    transition: width 1s ease;
+}
+
+.navbuttons button:hover::before {
+    width: 100%;
+}
+
+.topnav {
+    height: 4px;
+    background-color: dodgerblue;
+}
+
+.imageSection {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+   
+}
+
+.boxforcatagories {
+    margin-top: 139px;
+    margin-bottom: 50px;
+}
+
+.box {
+    border: 1px solid lightgray;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0;
+   
+    box-shadow: 0px 3px 5px 2px gray;
+    cursor: pointer;
+    margin: 10px; /* Margin for spacing between boxes */
+}
+
+.box img {
+    height: 200px;
+    width: 200px;
+    margin-top: 10px;
+}
+
+.box button {
+    width: 100%;
+    height: 30px;
+    background-color: dodgerblue;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    color: whitesmoke;
+    margin: 5px 0; /* Adjusted margin for better spacing */
+    cursor: pointer;
+}
+
+.box p {
+    text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: lighter;
+    font-size: 10px;
+}
+
+.box:hover {
+    border: 1px solid dodgerblue;
+}
+
+/* Responsive Styles for screens up to 647px */
+@media (max-width: 647px) {
+    .imageSection {
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-left: 30px;
+    }
+    .imageSection img{
+        object-fit: cover;
+        width: 100%;
+    }
+
+    .boxforcatagories {
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin-top: -10px;
+        justify-content: center;
+
+    }
+
+    .box {
+        height: auto; /* Allow height to adjust based on content */
+        margin-top: 20px; /* Adjust margin for spacing */
+    }
+
+    .navbuttons {
+        position: fixed;
+        top: 90%;
+        bottom: 0; /* Stick to the bottom */
+        left: 0;
+        right: 0; /* Full width */
+        background-color: whitesmoke;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for visibility */
+        padding: 10px;
+        z-index: 1;
+        flex-direction: row; /* Ensure buttons are in a row */
+        justify-content: center;
+        
+    }
+
+    .navbuttons button {
+        margin: 0 25px; /* Adjust margin for spacing */
+        font-size: 12.5px; /* Adjust font size */
+    }
+
+    .navbuttons i {
+        font-size: 10px; /* Adjust icon size */
+    }
+}
+
+/* Responsive Styles for screens up to 491px */
+@media (max-width: 491px) {
+    .boxforcatagories {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin-top: -10px;
+        justify-content: center;
+        margin-right: 40px;
+
+    }
+    .box {
+        width: 100%; /* Full width for small screens */
+        margin: 10px 0; /* Margin for spacing */
+    }
+
+    .logoAndSearch input {
+        width: 200px; /* Adjust input width for smaller screens */
+    }
+
+    .logoAndSearch button {
+        width: 80px; /* Adjust button width for smaller screens */
+    }
+
+}
+@media (max-width: 385px) {
+    .boxforcatagories {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: -10px;
+        justify-content: center;
+        position: absolute;
+        top: 30%;
+        left: 10%;     
+       
+
+    }
+    .navbuttons button {
+       font-weight: bold;
+        font-size:6px;
+    }
+
+    .navbuttons i {
+        font-size: 7px; /* Adjust icon size */
+    }
+}
+
+@media (max-width: 365px) {
+    .boxforcatagories{
+        display: flex;
+        flex-direction: column;
+        width: 110%;
+        margin-top: -10px;
+        justify-content: center;
+        margin-right: 20px;
+    }
+    .navbuttons button {
+        font-size: 12px; /* Adjust font size */
+    }
+
+    .navbuttons i {
+        font-size: 10px; /* Adjust icon size */
+    }
+
+}
+@media (max-width: 296px) {
+    .boxforcatagories {
+        display: flex;
+        flex-direction: column;
+        width: 150%;
+        left: 30%;
+        margin-top: -10px;
+        justify-content: center;
+        margin-right: 20px;
+
+    }
+    .box{
+        width: 250px;
+        height: 250px;
+    }
+    .navbuttons{
+        top: 91%;
+    }
+    .navbuttons button {
+        font-size: 12px; /* Adjust font size */
+    }
+
+    .navbuttons i {
+        font-size: 10px; /* Adjust icon size */
+    }
+}

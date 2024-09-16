@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TeacherLogin</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="logincontainer">
+      <div class="formcontroller">
+        <form id="teacherForm">
+          <h1>Teachers Login Form</h1>
+          <label class="nameLabel">Name</label>
+          <input type="text" placeholder="Enter your name" required id="teachername" />
+          <label>Password</label>
+          <input type="password" placeholder="Enter your password" required id="teacherpassword" />
+          <p id="teacherError"></p>
+          <button type="submit">Login</button>
+        </form>
+        <a href="../index.html" class="backtohome">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAnbX2WB8hpxd46wPlop0aXMsU4bVqcAZc",
+        authDomain: "teacherstudentbooking.firebaseapp.com",
+        databaseURL: "https://teacherstudentbooking-default-rtdb.firebaseio.com",
+        projectId: "teacherstudentbooking",
+        storageBucket: "teacherstudentbooking.appspot.com",
+        messagingSenderId: "704160360811",
+        appId: "1:704160360811:web:f221415bf3f71ac805442e",
+        measurementId: "G-Q5WXBMHL3E",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+
+      const authenticateTeacher = (username, password) => {
+        const dbref = ref(db);
+        const teacherRef = child(dbref, 'addTeacher'); // Correct use of child function
+
+        get(teacherRef)
+          .then((snapshot) => {
+            let authenticated = false; // Fixed variable name
+
+            snapshot.forEach((teacherSnapshot) => {
+              const teacherData = teacherSnapshot.val();
+              if (teacherData.TeacherName === username && teacherData.TeacherPassword === password) {
+                localStorage.setItem("teachername", teacherData.TeacherName || "");
+
+                window.location.href = "teacherpage.html";
+                authenticated = true; // Set the correct variable
+                return;
+              }
+            });
+
+            if (!authenticated) { // Fixed the check to use the correct variable
+              document.getElementById("teacherError").textContent = "Invalid username or password";
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching teacher data:", error); // Improved error logging
+          });
+      };
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const loginForm = document.getElementById("teacherForm");
+
+        loginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const username = document.getElementById("teachername").value; // Retrieve value
+          const password = document.getElementById("teacherpassword").value; // Retrieve value
+
+          authenticateTeacher(username, password);
+        });
+      });
+    </script>
+  </body>
+</html>

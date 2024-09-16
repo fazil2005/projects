@@ -1,0 +1,1159 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: outfit;
+   
+}
+
+body{
+   background-color: black;
+  
+}
+.loginpage{
+    display: flex;
+    justify-content: center;
+    margin: 140px auto;
+    flex-wrap: wrap;
+}
+.loginrow{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 20px 40px;
+    border-radius: 4px;
+    width: 60%;
+    max-width: 600px;
+    margin: 0 20px; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    box-sizing: border-box; 
+  
+}
+.loginrow h1{
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+}
+.loginbuttons{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.loginbuttons button{
+    width: 100%; 
+    padding: 10px; 
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 12px;
+    
+}
+.loginbuttons i{
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+/* adiminpage */
+.adminpage {
+    display: flex;
+    justify-content: center;
+    margin-top: 110px;
+    flex-wrap: wrap;
+}
+
+.adminloginsection {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid white;
+    padding: 20px 40px;
+    border-radius: 4px;
+    width: 60%;
+    max-width: 600px;
+    margin: 0 20px; 
+    background-color: rgba(255, 255, 255, 0.1); 
+    box-sizing: border-box; 
+}
+
+.adminloginsection h1 {
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px; /
+}
+
+.logininput {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.logininput input {
+    height: 30px;
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+    outline: none;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.logininput input::placeholder {
+    color: black;
+}
+
+.logininput button {
+    width: 100%; 
+    padding: 10px; 
+    border: none;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logininput button:hover {
+    background-color: #2980b9; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 968px) {
+    .loginpage{
+        margin-top: 300px;
+    }
+    .adminloginsection {
+        width: 80%;
+        
+    }
+    .loginrow{
+        width: 80%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .adminloginsection {
+        width: 90%; 
+    }
+    .loginpage{
+        width: 90%;
+    }
+    .loginpage h1{
+        font-size: 17px;
+    }
+}
+
+
+/* adminpage */
+
+/* Flex container for nav items */
+/* General Styles */
+.nav {
+    display: flex;
+    justify-content: center;
+    /* Other styles for .nav */
+}
+
+/* Style for each nav button */
+.nav button {
+    padding: 10px 10px;
+    margin: 9px 5px; /* Adjusted margin for better spacing */
+    border: none;
+    background-color: transparent;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+}
+
+/* Icon styling */
+.nav button i {
+    margin-right: 10px;
+    color: white;
+}
+
+/* Hover effect */
+.nav button:hover {
+    background-color: #2980b9;
+}
+
+/* Error message styling */
+#erroradmin {
+    color: red;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+/* Optional: Styling for large icons */
+.navbar i {
+    font-size: 55px;
+}
+.navbutton{
+    display: none;
+   
+   position: absolute;
+}
+.navbutton i{
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 823px) {
+    .nav {
+        justify-content: flex-start; /* Align to the left */
+        position: absolute; 
+        top: 0;
+        left: -50%;
+        width: 100%; 
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        transition: all 0.5s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+       
+    }
+    .navbutton{
+        display: block;
+      
+    }
+
+    .nav button {
+        margin: 5px; /* Adjust margin if needed for better spacing */
+        width: 100px;
+        
+    }
+
+    /* Optional: Adjustments for nav button size on smaller screens */
+    .nav button {
+        padding: 8px 8px;
+    }
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background-color: white;
+
+}
+.popup h2{
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: black;
+    font-size: 27px;
+
+}
+
+.form-grid {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+ 
+}
+
+.form-grid label {
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+   font-size: 10px;
+   margin-top: 10px;
+}
+.form-grid input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+   border-bottom-right-radius: 8px;
+   width: 100%;
+   margin-top:5px;
+   font-family: sans-serif;
+}
+ button {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+.feepackages {
+   display: none;
+    position: fixed;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+}
+.feepackages h1{
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+.feepackages table{
+    width: 100%;
+   
+    border: 1px solid #ddd;
+    background-color: white;
+    margin-bottom: 10px; /* Adds space between table and button */
+    border-radius: 14px;
+   margin-top: 20px;
+    
+    
+}
+.feepackages tr,th,td{
+    border: 1px solid #ddd;
+    padding: 15px ;
+    color: white;
+    border-radius: 6px;
+    background-color: black;
+    
+   
+    
+}
+.feepackages td{
+    text-align: center;
+}
+
+.feepackages button{
+    display: block;
+    margin-top: 10px; /* Adds space between table and button */
+    width: 100%; /* Ensure button occupies full width */
+    padding: 10px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+.feepackages button:hover{
+    background-color: #3498db;
+}
+
+.dietdetails{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    display: none;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.buttons h1{
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+.dietdetailsslim,.dietdetailsmedium,.dietdetailsfat{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    display: none;
+
+}
+.detailslim{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+   
+}
+.detailslim h1{
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    font-size: 19px;
+}
+
+.detailslim li{
+    font-family: sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    list-style: decimal;
+    font-size: 12px;
+    margin-top: 10px;
+
+    
+}
+.detailslim li span{
+    text-decoration: underline;
+    margin-left: 10px;
+    font-family: sans-serif;
+    font-weight: lighter;
+}
+.closebutton i{
+    cursor: pointer;
+}
+
+.supplimentstore{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns */
+    gap: 10px; /* Space between cards */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 700px; /* Max width of the container */
+    background: white;
+   margin-top: 20px;
+   display: none;
+}
+.cards{
+    border: 1px solid black;
+    width: 210px;
+    margin: 5px;
+   
+}
+.cards img{
+    width: 150px ;
+    height: 150px;
+    
+}
+.cards h2{
+    font-family: sans-serif;
+    font-size: 12px;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+}
+.cards p{
+    text-align: center;
+    font-size: 17px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+button {
+    grid-column: span 3; 
+    width: 100%; /* Full width of the container */
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    background-color: #007bff; /* Example background color */
+    color: white;
+    cursor: pointer;
+    box-sizing: border-box; /* Include padding and border in width */
+}
+@media(max-width:816px){
+    .cards{
+       width: 100%;
+    }
+    .cards img{
+        width: 100%;
+    }
+    .supplimentstore{
+        top: 40%;
+    }
+}
+
+.createbills{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    display: none;
+    
+}
+.createbills h1{
+    text-transform: uppercase;
+}
+.billsection{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+.billsection h1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
+.billsection label{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+   font-size: 10px;
+   margin-top: 10px;
+    
+}
+.billsection input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+   border-bottom-right-radius: 8px;
+   width: 100%;
+   margin-top:5px;
+   font-family: sans-serif;
+   
+}
+.closesections i{
+    cursor: pointer;
+}
+
+/* add staff */
+
+.addstaff{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    display: none;
+   
+     
+}
+.leftstaff{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+.leftstaff input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+   border-bottom-right-radius: 8px;
+   width: 100%;
+   margin-top:5px;
+   font-family: sans-serif;
+   display: flex;
+  
+}
+
+.leftstaff  label{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
+   font-size: 10px;
+   margin-top: 10px;
+}
+.leftstaff h1{
+    text-align: center;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+
+
+
+
+.staffdetails {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Ensures the popup takes full height of its container */
+    margin-top: 60px;
+    display: none;
+    
+    
+}
+
+/* Styles for the popup content */
+.staffleft {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    background-color: white;
+}
+
+/* Styles for the table */
+
+.staff-table{
+    width: 100%;
+    margin-bottom: 10px; /* Adds space between table and button */
+    border-radius: 14px;
+    
+}
+
+
+
+.staff-table input {
+   
+   text-align: center;
+    padding: 6px 5px;
+    margin-left: 4px;
+    width: 100%;
+    color: black;
+    background: white;
+    font-family: sans-serif;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+}
+
+.staff-table button {
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.staff-table th, .staff-table td {
+   font-family: sans-serif;
+    padding: 3px; 
+    color: white;
+    border-radius: 6px;
+    font-size: 10px;
+}
+
+.staff-table th {
+    background-color: white;
+    color: black;
+    text-transform: uppercase;
+}
+.staff-table tbody td{
+    background-color: white;
+    
+    color: black;
+}
+.staff-table tbody tr{
+    border: 1px solid black;
+}
+
+.staff-table tbody button{
+    background-color: dodgerblue;
+    width: 70px;
+    height: 40px;
+}
+@media (max-width:776px) {
+    .staffdetails{
+       position: absolute;
+       top: -15%;
+    }
+    .addstaff{
+        margin-top: -130px;
+    }
+}
+
+
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .printable, .printable * {
+        visibility: visible;
+    }
+    .printable {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+}
+
+
+
+/* userpage */
+
+.mainuser{
+    display: flex;
+    justify-content: space-around;
+    transition: all 1s ease;
+}
+.leftuser{
+    margin-top: 70px;
+    border: 1px solid black;
+    background-color: white;
+    width: 30%;
+    border-radius: 6px;
+    padding: 20px 20px;
+}
+.leftuser h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+.leftuser table{
+    margin-top: 10px;
+   padding: 10px 10px;
+   width: 100%;
+    border: 1px solid #ddd;
+    background-color: white;
+    margin-bottom: 10px; /* Adds space between table and button */
+  
+}
+.leftuser table th,tr{
+    border: 1px solid #ddd;
+    padding: 8px; /* Adjust cell padding */
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+.rightuser{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.rightuser h1{
+    color: white;
+    margin: 10px;
+    text-transform: uppercase;
+}
+.rightuser p{
+    color: white;
+}
+.rightuser button{
+    width: 300px;
+    transition: all 1s ease;
+}
+.viewdetails{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    display: none;
+    
+   
+}
+.viewdetails img{
+    width: 300px;
+    height: 300px;
+    display: block;
+  
+}
+.viewdetails h1{
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+.detailsrow p{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    margin: 10px;
+    font-size: 12px;
+}
+.detailsrow h1{
+    text-align: center;
+}
+.detailsrow h3{
+font-family: sans-serif;
+margin-bottom: 10px;
+text-transform: uppercase;
+font-size: 10px;
+
+}
+.detailsrow span{
+    font-family: sans-serif;
+    font-size: 12px;
+}
+.detailssecondrow p{
+    font-size: 10px;
+    line-height: 13px;
+}
+.detailssecondrow{
+    margin-top: 20px;
+}
+.contactection{
+    text-align: center;
+}
+.contactection i{
+    font-size: 24px;
+    cursor: pointer;
+}
+.detailsright i{
+    cursor: pointer;
+}
+.datedetails{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  flex-direction: column;
+
+}
+.datedetails h1,h2{
+    color: white;
+    text-align: center;
+    color: green;
+}
+.datedetails h2{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.datedetails p{
+    color: white;
+    text-align: center;
+    color: red;
+}
+
+
+/* staffpage */
+
+.staffpage{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    margin-top: 40px;
+   
+}
+.staffpage h1{
+    
+    text-transform: uppercase;
+    font-size: 30px;
+}
+.staffpage p{
+    font-family: sans-serif;
+    font-weight: lighter;
+    font-size: 10px;
+}
+.staffpage button{
+    width: 40%;
+}
+.allmembersname{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: mintcream;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 100%;
+    max-width: 600px;
+    background: white;
+    display: none;
+}
+.allmembersname table{
+    margin-top: 10px;
+   padding: 5px 5px;
+   width: 100%;
+    border: 1px solid #ddd;
+    background-color: white;
+    margin-bottom: 10px; /* Adds space between table and button */
+}
+.allmembersname table th,tr{
+    border: 1px solid #ddd;
+    padding: 8px; /* Adjust cell padding */
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    background-color: white;
+    color: black;
+}
+
+.allmembersname table h5{
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0;
+    
+}
+.allmembersname table td{
+    padding: 8px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+   
+}
+
+/* Base Styles for Popup */
+.popup2 {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Full height of its container */
+    position: fixed; /* Fixed position */
+    top: 0; /* Align to top */
+    left: 0; /* Align to left */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px; /* Add padding around popup */
+    z-index: 1000; /* Ensure popup is above other content */
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px; /* Max width for larger screens */
+    background-color: white;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    padding: 10px;
+    overflow: hidden; /* Hide overflow */
+}
+
+/* Table Styles */
+.member-table {
+    width: 100%;
+    border-collapse: collapse; /* Collapse borders */
+    overflow-x: auto; /* Horizontal scroll for small screens */
+}
+
+.member-table th, .member-table td {
+    padding: 3px; /* Add padding for better readability */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Light border for rows */
+}
+.member-table input{
+    padding: 4px;
+    color: black;
+    width: 100%;
+    font-size: 11px;
+    font-weight: bold;
+
+}
+.member-table button{
+    padding: 0px;
+}
+
+.member-table th {
+    background-color: #f4f4f4; /* Light grey background for headers */
+    color: #333; /* Dark text color for better contrast */
+    font-weight: bold; /* Bold headers */
+}
+
+.member-table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+}
+
+.member-table tbody td {
+    background-color: #fff; /* White background for cells */
+    color: #333; /* Dark text color */
+}
+
+.member-table button {
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Padding for buttons */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 14px; /* Larger font for buttons */
+    margin: 2px; /* Small margin around buttons */
+}
+
+.member-table button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Close button styles */
+#closePopup2 {
+    display: block;
+    margin-top: 20px; /* Space above close button */
+    width: 100%; /* Full width */
+    padding: 10px;
+    background-color: dodgerblue; /* Red background color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px; /* Rounded corners */
+    font-size: 16px; /* Larger font size */
+}
+
+#closePopup2:hover {
+    background-color: #007bff; /* Darker shade on hover */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 100%;
+        padding: 10px; /* Adjust padding for smaller screens */
+        margin-top: -240px;
+    }
+
+    .member-table th, .member-table td {
+        padding: 3px; /* Adjust padding for smaller screens */
+        font-size: 12px; /* Smaller font size for better fit */
+    }
+
+    .member-table button {
+        padding: 6px 8px; /* Adjust button padding */
+        font-size: 12px; /* Adjust button font size */
+    }
+
+    #closePopup2 {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 504px) {
+    .popup-content {
+        width: 100%;
+    }
+
+    .member-table th, .member-table td {
+        font-size: 10px; /* Further reduce font size */
+        padding: 3px; /* Further reduce padding */
+    }
+
+    .member-table button {
+        padding: 4px 6px; /* Further reduce button padding */
+        font-size: 10px; /* Further reduce button font size */
+    }
+
+    #closePopup2 {
+        padding: 6px;
+        font-size: 12px; /* Adjust font size */
+    }
+}
+
+@media (max-width: 456px) {
+    .popup-content {
+        width: 100%;
+        padding: 10px; /* Adjust padding for small screens */
+        box-shadow: none; /* Remove shadow for very small screens if necessary */
+       
+    }
+
+    .member-table {
+        font-size: 10px; /* Reduce font size for table */
+        width: 40%;
+    }
+
+    .member-table th, .member-table td {
+        padding: 2px; /* Reduce padding for smaller screens */
+        font-size: 8px; /* Further reduce font size */
+        width: 100%;
+    }
+
+    .member-table input {
+        font-size: 5px; /* Reduce font size for inputs */
+        padding: 0px; /* Reduce padding for inputs */
+        width: 100%; /* Ensure inputs fit within the screen */
+    }
+
+    .member-table button {
+        padding: 0px; /* Further reduce button padding */
+        font-size: 8px; /* Further reduce button font size */
+        
+    }
+
+    #closePopup2 {
+        padding: 6px;
+        font-size: 12px; /* Adjust font size */
+    }
+
+    /* Ensure the table fits within the viewport */
+   
+
+   
+
+   
+
+  
+}
+
+
+
+
+
+
+

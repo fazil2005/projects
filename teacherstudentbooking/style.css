@@ -1,0 +1,1074 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: outfit;
+   
+}
+body{
+    background-image: url('https://wallpapers.com/images/hd/teacher-background-f2xrvs0eixuq26u9.jpg');
+}
+
+.navbutton h2{
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+.buttoncontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.mainbuttons{
+   display: flex;
+   flex-direction: column;
+   position: fixed;
+   top: 30%;
+   width: 50%;
+   gap: 10px;
+  
+}
+.mainbuttons button{
+   width: 100%;
+   padding: 10px;
+   font-weight: lighter;
+   cursor: pointer;
+   text-transform: uppercase;
+   font-weight: 700;
+   background-color: dodgerblue;
+   border-radius: 0px 70px 0px 70px;
+   color: #fff;
+   border: none;
+}
+.mainbuttons button:hover{
+    background-color: grey;
+}
+
+/* login-control */
+.logincontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+ 
+  
+    
+}
+.formcontroller{
+    display: flex;
+    position: fixed;
+    top: 20%;
+    padding: 20px 20px;
+    background-color: transparent;
+    border-radius: 0px 70px 0px 70px;
+    width: 50%;
+    flex-direction: column;
+    
+    
+}
+.formcontroller form{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 100%;
+   
+}
+.formcontroller form label{
+    text-transform: uppercase;
+    font-size: 10px;
+   color: white;
+}
+
+
+
+.formcontroller input{
+    padding: 5px;
+    border-radius: 0px 70px 0px 70px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    
+
+}
+.formcontroller input::placeholder{
+    font-size: 10px;
+}
+
+  
+.formcontroller form button{
+    padding: 5px;
+    border-radius: 0px 70px 0px 70px;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: #fff; 
+    border: none;
+    margin-top: 4px;
+    font-weight: bolder;
+}
+.formcontroller form button:hover{
+    background-color: #ffffffbe;
+}
+.formcontroller h1{
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
+
+.formcontroller h3{
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+}
+.formcontroller a{
+    text-align: center;
+    text-decoration: none;
+    margin-top: 4px;
+    color: darkblue;
+    font-weight: bolder;
+
+    color: white;
+    
+}
+.formcontroller p{
+    text-align: left;
+    font-weight: bold;
+    margin-left: 10px;
+    color: red;
+    text-transform: uppercase;
+    font-size: 10px;
+
+}
+#errorstudent{
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    color: red;
+    text-transform: uppercase;
+    font-size:10px;
+}
+#teacherError{
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    color: red;
+    text-transform: uppercase;
+    font-size:10px;
+}
+/* adminpage */
+.successPopup{
+    display: flex;
+    justify-content: center;
+    margin: 60px auto;
+   display: none;
+   
+}
+.backtohome{
+    font-size: 10px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: left;
+    width: 6%;
+
+}
+
+#errorReg{
+    display: none;
+}
+
+.backtohome i{
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: white;
+    color: black;
+    font-size: 23px;
+}
+
+.successPopup-content{
+    width: 326px;
+    height: 408px;
+    background: white;
+    box-shadow: 4px 4px 70px 10px rgb(0 0 0/11%);
+    border-radius: 25px;
+}
+.imgbox{
+    text-align: center;
+}
+.imgbox img{
+    width: 112px;
+    margin-top: 40px;
+
+}
+.title{
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin: auto;
+}
+.paragraph{
+    font-weight: 500;
+    width: 80%;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.05em;;
+    text-align: center;
+    margin: auto;
+}
+.buttonokay{
+    width: 50%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 25px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: #32ba7c;
+}
+
+#buttonokayreg{
+    width: 50%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 25px;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    letter-spacing: 0.05em;
+    background: #32ba7c;
+}
+
+.menubuttons{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 150px auto;
+    align-items: center;
+   
+}
+.menubuttons button{
+    padding: 20px;
+    border-radius: 0px 70px 0px 70px;
+    cursor: pointer;
+    font-weight: bolder;
+    border: none;
+    margin-top: 4px;
+    font-weight: bolder;
+    width: 60%;
+    background-color: dodgerblue;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.menubuttons button i{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.menubuttons button:hover{
+    background-color: #1c6ea4; 
+}
+
+
+.adminpagecontainer{
+    display: flex;
+    justify-content: center;
+}
+.adminaddrow{
+    display: flex;
+    padding: 20px 20px;
+    background-color: transparent;
+    border-radius: 0px 70px 0px 70px;
+    width: 70%;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-left: 50px;
+    height: 100%;
+    display: none;
+}
+.adminaddrow form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+ 
+}
+.adminaddrow form label{
+    text-transform: uppercase;
+    font-size: 10px;
+    color: white;
+}
+.adminaddrow form input{
+    padding: 6px;
+    border-radius: 0px 70px 0px 70px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+}
+.adminaddrow form button{
+    padding: 5px;
+    border-radius: 0px 70px 0px 70px;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: #fff; 
+    border: none;
+    margin-top: 4px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+.adminaddrow form button:hover{
+    background-color: #1c6ea4;
+}
+.adminaddrow form h1{
+    color: white;
+    
+    font-size: 15px;
+    text-align: center;
+    font-weight: lighter;
+    letter-spacing: 2px;
+}
+@media(max-width:699px){
+    .adminaddrow{
+        width: 90%;
+        margin-left: 0px;
+    }
+
+}
+
+
+
+/* deleterow */
+/* General Styles for .adminupdatedeletetrrow */
+.adminupdatedeletetrrow {
+    margin-top: 60px;
+    width: 100%;
+    display: block; 
+    display: none;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.adminupdatedeletetrrow table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: transparent;
+    border-radius: 0px 70px 0px 70px; 
+    overflow: hidden;
+}
+
+.adminupdatedeletetrrow table tbody input {
+    padding: 6px;
+    border-radius: 0px 70px 0px 70px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.adminupdatedeletetrrow th, 
+.adminupdatedeletetrrow td {
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.adminupdatedeletetrrow thead {
+    background-color: transparent;
+}
+
+
+
+.adminupdatedeletetrrow button {
+    padding: 10px 15px;
+    border-radius: 0px 70px 0px 70px;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: dodgerblue;
+    border: none;
+    margin-top: 10px;
+    font-size: 12px;
+    width: 100%;
+}
+
+.adminupdatedeletetrrow button:hover {
+    background-color: #e0e0e0;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1122px) {
+    .adminupdatedeletetrrow {
+        padding: 4px;
+        width: 80%;
+    }
+}
+/* Tablet and larger screens */
+@media (max-width: 768px) {
+    .adminupdatedeletetrrow {
+        padding: 4px;
+        width: 90%;
+       margin-top:90px;
+    }
+
+    .adminupdatedeletetrrow th, 
+    .adminupdatedeletetrrow td {
+        font-size: 10px;
+        padding: 5px; /* Adjusted for better spacing */
+    }
+    .adminupdatedeletetrrow table tbody input{
+        font-size: 9px;
+    }
+
+    .adminupdatedeletetrrow button {
+        padding: 8px 12px;
+        font-size: 10px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .adminupdatedeletetrrow {
+        padding: 10px;
+        margin-top: 140px;
+    }
+
+    .adminupdatedeletetrrow th, 
+    .adminupdatedeletetrrow td {
+        font-size: 8px;
+        padding: 4px; /* Adjusted for better spacing */
+    }
+
+    .adminupdatedeletetrrow button {
+        padding: 6px 10px;
+        font-size: 8px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 471px) {
+    .adminupdatedeletetrrow {
+        padding: 5px; /* Reduced padding for very small screens */
+    }
+
+    .adminupdatedeletetrrow th, 
+    .adminupdatedeletetrrow td {
+        font-size: 7px; /* Further reduced font size */
+        padding: 3px; /* Further reduced padding */
+    }
+
+    .adminupdatedeletetrrow button {
+        padding: 4px 8px; /* Reduced padding for small screens */
+        font-size: 7px; /* Further reduced font size */
+    }
+    .adminupdatedeletetrrow table tbody input{
+        font-size: 6px;
+    }
+}
+/* Very small screens (341px and narrower) */
+@media (max-width: 341px) {
+    .adminupdatedeletetrrow {
+        padding: 5px; /* Minimal padding to maximize usable space */
+        margin-left: 40px;
+    }
+
+    .adminupdatedeletetrrow table {
+        font-size: 7px; /* Further reduced font size for small screens */
+    }
+
+    .adminupdatedeletetrrow th, 
+    .adminupdatedeletetrrow td {
+        font-size: 6px; /* Smaller font size for very small screens */
+        padding: 2px; /* Reduced padding for very small screens */
+    }
+
+    .adminupdatedeletetrrow button {
+        padding: 4px 6px; /* Minimal padding to fit within the screen width */
+        font-size: 6px; /* Smaller font size to fit the button on small screens */
+    }
+
+    .adminupdatedeletetrrow table tbody input {
+        font-size: 6px; /* Smaller font size for input fields */
+    }
+}
+
+
+
+/* studentregistartion */
+/* Base styles for .studentsregistrations */
+.studentsregistrations {
+    display: flex;
+    padding: 20px;
+    width: 50%;
+    flex-direction: column;
+    margin-top: 60px;
+    margin-left: 50px;
+    height: 60%;
+    display: none;
+}
+
+.studentsregistrations h1 {
+    color: white;
+    text-align: center;
+    font-size: 15px; /* Adjust font size */
+    margin-bottom: 5px;
+    
+}
+
+.studentsregistrations li {
+    display: flex;
+    margin-top: 20px;
+    border: 5px solid white;
+    font-weight: 600;
+    width: 100%;
+    font-size: 13px;
+    padding: 5px;
+    color: white;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 0px 70px 0px 70px;
+}
+
+.pending {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.studentbutton {
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 0px 70px 0px 70px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 2px;
+    font-size: 16px; /* Adjust font size */
+}
+
+.studentbutton:hover {
+    background-color: grey;
+}
+
+#studentRegClose {
+    padding: 5px;
+    border-radius: 0px 70px 0px 70px;
+    cursor: pointer;
+    font-weight: bolder;
+    background-color: #fff;
+    border: none;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+#studentRegClose:hover {
+    background-color: grey;
+}
+
+/* Media Queries for responsiveness */
+
+/* Tablet and larger screens */
+@media (max-width: 768px) {
+    .studentsregistrations {
+        width: 70%; /* Adjust width for tablets */
+        margin-left: 30px;
+        padding: 15px;
+    }
+
+    .studentsregistrations h1 {
+        font-size: 20px; /* Adjust font size */
+    }
+
+    .studentsregistrations li {
+        font-size: 14px; /* Adjust font size */
+        padding: 8px; /* Adjust padding */
+    }
+
+    .studentbutton {
+        font-size: 14px; /* Adjust font size */
+        padding: 8px; /* Adjust padding */
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .studentsregistrations {
+        width: 90%; /* Full width for mobile screens */
+        margin-left: 10px;
+        padding: 10px;
+    }
+
+    .studentsregistrations h1 {
+        font-size: 18px; /* Further adjust font size */
+        margin-bottom: 15px;
+    }
+
+    .studentsregistrations li {
+        font-size: 12px; /* Further adjust font size */
+        padding: 6px; /* Further adjust padding */
+    }
+
+    .studentbutton {
+        font-size: 12px; /* Further adjust font size */
+        padding: 6px; /* Further adjust padding */
+    }
+
+    #studentRegClose {
+        font-size: 12px; /* Adjust font size */
+        padding: 4px; /* Adjust padding */
+    }
+}
+
+/* Very small screens (341px and narrower) */
+@media (max-width: 341px) {
+    .studentsregistrations {
+        width: 100%; /* Full width */
+        padding: 5px;
+        margin-left: 0;
+    }
+
+    .studentsregistrations h1 {
+        font-size: 16px; /* Smaller font size */
+        margin-bottom: 10px;
+    }
+
+    .studentsregistrations li {
+        font-size: 10px; /* Smaller font size */
+        padding: 4px; /* Smaller padding */
+    }
+
+    .studentbutton {
+        font-size: 10px; /* Smaller font size */
+        padding: 4px; /* Smaller padding */
+    }
+
+    #studentRegClose {
+        font-size: 10px; /* Smaller font size */
+        padding: 3px; /* Smaller padding */
+    }
+}
+
+/* student main page */
+
+/* Base styles for .studentpage */
+.studentpage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Styles for .studentappointmentrow */
+.studentappointmentrow {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0px 70px 0px 70px;
+   
+    width: 50%;
+    margin-top: 140px;
+    background-color: transparent;
+    align-items: center;
+    padding: 20px;
+}
+
+.studentappointmentrow h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 6px;
+}
+
+.studentappointmentrow input {
+    padding: 6px;
+    border-radius: 0px 70px 0px 70px;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+#searchButton {
+    width: 50%;
+    border-radius: 0px 70px 0px 70px;
+    border: 1px solid black;
+    background-color: transparent;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: grey;
+}
+
+.studentappointmentrow ul li {
+    list-style: none;
+    text-align: center;
+    font-weight: bolder;
+    margin-top: 10px;
+    color: white;
+}
+
+.studentappointmentrow li button {
+    border-radius: 0px 70px 0px 70px;
+    border: 1px solid black;
+    background-color: dodgerblue;
+    align-items: center;
+    padding: 3px;
+    margin-top: 10px;
+    color: white;
+    font-weight: bolder;
+    font-size: 8px;
+    cursor: pointer;
+}
+
+.studentappointmentrow li button:hover {
+    background-color: dodgerblue;
+}
+
+/* Styles for .appoinmentsstatus */
+.appoinmentsstatus {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 70px 0px 70px 0px;
+    
+    width: 50%;
+    background-color: transparent;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-bottom: 40px;
+}
+
+.appoinmentsstatus h2 {
+    color: white;
+    font-size: 27px;
+    text-transform: uppercase;
+}
+
+.appoinmentsstatus ul li {
+    color: white;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+}
+
+.appoinmentsstatus p {
+    margin-top: 10px;
+    color: white;
+}
+
+#noTeachersMessage {
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 10px;
+    color: red;
+    text-transform: uppercase;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Media Queries for responsiveness */
+
+/* Tablet and larger screens */
+@media (max-width: 768px) {
+    .studentappointmentrow,
+    .appoinmentsstatus {
+        width: 70%; /* Adjust width for tablets */
+    
+        padding: 15px; /* Adjusted padding */
+    }
+    .studentappointmentrow{
+        margin-top: 60px;
+    }
+    .studentappointmentrow input{
+        margin-top: 10px;
+    }
+
+    #searchButton {
+        width: 70%; /* Adjust button width */
+    }
+
+    .studentappointmentrow li button {
+        font-size: 12px; /* Adjust font size */
+        padding: 5px; /* Adjust padding */
+    }
+
+    .appoinmentsstatus ul li {
+        font-size: 11px; /* Adjust font size */
+    }
+
+    #noTeachersMessage {
+        font-size: 14px; /* Adjust font size */
+    }
+    #teacherList li{
+        font-size: 13px;
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .studentappointmentrow,
+    .appoinmentsstatus {
+        width: 85%; /* Increase width for mobile screens */
+       
+        padding: 10px; /* Adjusted padding */
+    }
+    .studentappointmentrow{
+        margin-top: 60px;
+    }
+    #searchButton {
+        width: 85%; /* Increase button width */
+    }
+
+    .studentappointmentrow li button {
+        font-size: 10px; /* Further reduced font size */
+        padding: 4px; /* Further reduced padding */
+    }
+
+    .appoinmentsstatus ul li {
+        font-size: 10px; /* Further reduced font size */
+    }
+
+    #noTeachersMessage {
+        font-size: 12px; /* Further reduced font size */
+    }
+}
+
+/* Very small screens (341px and narrower) */
+@media (max-width: 341px) {
+    .studentappointmentrow,
+    .appoinmentsstatus {
+        width: 95%; /* Almost full width for very small screens */
+        margin-top: 20px; /* Minimal margin */
+        padding: 5px; /* Minimal padding */
+    }
+    .studentappointmentrow{
+        margin-top: 60px;
+    }
+   
+
+    #searchButton {
+        width: 95%; /* Full width for very small screens */
+        
+    }
+
+    .studentappointmentrow li button {
+        font-size: 8px; /* Smaller font size */
+        padding: 3px; /* Smaller padding */
+    }
+
+    .appoinmentsstatus ul li {
+        font-size: 8px; /* Smaller font size */
+    }
+
+    #noTeachersMessage {
+        font-size: 10px; /* Smaller font size */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.teacherappointemnts{
+    display: flex;
+    justify-content: center;
+   align-items: center;
+    flex-direction: column;
+}
+.teacherappoinmentsrow{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 0px 70px 0px 70px;
+    
+    width: 50%;
+    margin-top: 140px;
+    background-color: transparent;
+    align-items: center;
+    padding: 20px;
+}
+.teacherappoinmentsrow ul li{
+    color: white;
+    margin-top: 6px;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+.teacherappoinmentsrow ul{
+    margin-top: 6px;
+}
+.teacherappoinmentsrow p{
+    margin-top: 20px;
+}
+.teacherappo{
+    display: none;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+}
+.teacherappoinmentsrow ul li button{
+    border-radius: 0px 70px 0px 70px;
+    border: 1px solid black;
+    background-color: dodgerblue;
+    align-items: center;
+    padding: 3px;
+    margin-top: 10px;
+    color: white;
+    font-weight: bolder;
+    font-size: 15px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+.teacherappoinmentsrow ul li button:hover{
+    background-color: #32ba7c;
+}
+.headingappoiments{
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: white;
+}
+.teacherappointemnts p{
+    color: white;
+}
+@media (max-width:870px) {
+    .teacherappoinmentsrow{
+        width: 70%;
+    }
+    .headingappoiments{
+        font-size: 20px;
+    }
+    
+}
+@media (max-width:434px) {
+    .headingappoiments{
+        font-size: 15px;
+    }
+}
+ @media (max-width:340px) {
+        .headingappoiments{
+            font-size: 10px;
+        }
+}
+
+/* Base styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+/* Styles for the modal content */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    max-width: 90%; /* Ensure the modal doesn't exceed the viewport width */
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+.modal label, input{
+  width: 100%;
+  font-weight: bold;
+}
+#approveButton{
+    width: 100%;
+    padding: 3px;
+    text-transform: uppercase;
+    background-color: dodgerblue;
+    border: none;
+    border-radius: 0px 70px 0px 70px;
+    color: white;
+}
+
+/* Close button styling */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Media Queries for responsiveness */
+
+/* Tablet and larger screens */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 70%; /* Adjust width for tablets */
+        padding: 15px; /* Adjust padding */
+        margin-top: 150px;
+    }
+
+    .close {
+        font-size: 24px; /* Adjust font size */
+    }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 85%; /* Increase width for mobile screens */
+        padding: 10px; /* Adjust padding */
+    }
+
+    .close {
+        font-size: 20px; /* Adjust font size */
+    }
+}
+
+/* Very small screens (341px and narrower) */
+@media (max-width: 341px) {
+    .modal-content {
+        width: 95%; /* Almost full width for very small screens */
+        padding: 5px; /* Minimal padding */
+    }
+
+    .close {
+        font-size: 18px; /* Smaller font size */
+    }
+}

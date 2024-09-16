@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="mainuser" id="mainuser">
+      <div class="rightuser">
+        <h1 id="welcomeback"></h1>
+        <p></p>
+        <button id="viewdetails">View Details</button>
+      </div>
+    </div>
+    <div class="viewdetails" id="detailsrow" style="display: none">
+      <div class="detailsrow">
+        <h1>LegendsGym</h1>
+        <p>UserName:<span id="detailsusername"></span></p>
+        <p>place:<span id="detailsplace"></span></p>
+        <p>Gender:<span id="detailsgender"></span></p>
+        <p>
+          Fees Remaining:<span
+            id="detailsfees"
+            style="text-decoration: underline"
+          ></span>
+        </p>
+        <div class="detailssecondrow">
+          <p id="detailsparagraph"></p>
+        </div>
+        <div class="contactection">
+          <i class="fa-brands fa-whatsapp"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-facebook"></i>
+        </div>
+      </div>
+      <div class="detailsright">
+        <i id="closetag" class="fa-solid fa-xmark"></i>
+      </div>
+    </div>
+    <div class="datedetails">
+      <h2 id="openorclose">Loading..</h2>
+      <h1 id="date">Loading...</h1>
+
+      <p id="closingtime">Loading..</p>
+    </div>
+
+    <script type="module" src="../userlogin.js"></script>
+    <script>
+      const username = localStorage.getItem("username");
+      document.getElementById(
+        "welcomeback"
+      ).textContent = `Welcome Back,${username}`;
+
+      const detailsUsername = localStorage.getItem("username");
+      const detailsplace = localStorage.getItem("place");
+      const detailsgender = localStorage.getItem("gender");
+      const detailsfees = localStorage.getItem("fees");
+      const detailsemail = localStorage.getItem("email");
+
+      console.log(detailsemail);
+
+      document.getElementById("detailsusername").textContent =
+        detailsUsername || "N/A";
+      document.getElementById("detailsplace").textContent =
+        detailsplace || "N/A";
+      document.getElementById("detailsgender").textContent =
+        detailsgender || "N/A";
+      document.getElementById("detailsfees").textContent = detailsfees || "N/A";
+      document.getElementById(
+        "detailsparagraph"
+      ).textContent = `Thank you for your continued commitment to LegendsGym, ${detailsUsername}! We’re excited to have you as part of our community. As of now, you have a remaining balance of ${detailsfees} on your account. Please ensure to clear this amount at your earliest convenience to keep your membership active and enjoy uninterrupted access to all our facilities and classes. If you have any questions or need assistance with the payment process, feel free to reach out to our support team. We look forward to seeing you at the gym and helping you achieve your fitness goals!`;
+
+      console.log(new Date());
+
+      const viewdetailsbutton = document.getElementById("viewdetails");
+      const viewdetails = document.getElementById("detailsrow");
+      const closetag = document.getElementById("closetag");
+
+      viewdetailsbutton.addEventListener("click", () => {
+        viewdetails.style.display = "flex";
+
+        closetag.addEventListener("click", () => {
+          viewdetails.style.display = "none";
+        });
+      });
+
+      const date = document.getElementById("date");
+      const openOrClose = document.getElementById("openorclose");
+      const closetime = document.getElementById("closingtime");
+
+      setInterval(() => {
+        let day = new Date();
+        let options = {
+          weekday: "long",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        };
+        let timeString = day.toLocaleTimeString("en-US", options);
+        let currentDay = day.getDay(); // 0 is Sunday, 1 is Monday, etc.
+
+        // Display the current time
+        date.innerHTML = `${timeString}`;
+
+        if (currentDay === 0) {
+          openOrClose.innerHTML = "closed";
+          openOrClose.style.color = "red";
+          date.style.color = "red";
+          closetime.textContent = "open at Monday";
+        } else {
+          openOrClose.innerHTML = "open";
+          openOrClose.style.color = "green";
+          date.style.color = "green";
+          closetime.textContent = "close only on sunday's";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

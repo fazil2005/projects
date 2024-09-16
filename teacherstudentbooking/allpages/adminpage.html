@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminPage</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+  <div class="menubuttons" id="menubuttons">
+    <button id="addTeacherButton"><i class="fa-solid fa-user-plus"></i>AddTeacher</button>
+    <button id="updateOrDeleteTeacherButton"><i class="fa-solid fa-pen-nib"></i>Update/DeleteTeacher<i class="fa-solid fa-trash"></i></button>
+    <button id="studentsRegistrationButton"><i class="fa-solid fa-address-card"></i>studentsRegistrationApproval</button>
+  </div>
+
+  <div class="successPopup" id="successPopup">
+    <div class="successPopup-content">
+      <div class="imgbox">
+        <img src="https://cdn-icons-png.freepik.com/512/5610/5610944.png" alt="">
+      </div>
+      <div class="title">
+        <h3>Success!</h3>
+      </div>
+      <p class="paragraph">New teacher has been added successfully</p>
+      <form action="">
+        <a href="" class="buttonokay">OKAY</a>
+      </form>
+    </div>
+  </div>
+
+
+
+    <div class="adminpagecontainer" id="adminpagecontainer">
+        <div class="adminaddrow" id="adminaddrow">
+            <form id="addTeacherForm">
+                <h1>AddTeacher</h1>
+                <label for="">Name</label>
+                <input type="text" id="TeacherName" required>
+
+                <label for="">Subject</label>
+                <select required id="Subject">
+                    <option>English</option>
+                    <option>Maths</option>
+                    <option>Hindi</option>
+                    <option>Biology</option>
+                    <option>Physics</option>
+                    <option>Chemistry</option>
+                  </select>
+
+                <label for="">Age</label>
+                <input type="text" required id="TeacherAge">
+
+                <label for="">Phone</label>
+                <input type="text" required id="TeacherPhone">
+
+                <label for="">Password</label>
+                <input type="text" required id="TeacherPassword">
+
+                <button type="submit">add</button>
+                <button id="closeButton">Close</button>
+            </form>
+
+        </div>
+         <div class="adminupdatedeletetrrow" id="adminupdatedeletetrrow">
+              <table >
+                <thead>
+                  <tr>
+                    <th>Sno</th>
+                    <th>Name</th>
+                    <th>Subject</th>
+                    <th>Age</th>
+                    <th>Phone</th>
+                    <th>Password</th>
+                    <th>Update</th>
+                    <th>delete</th>
+
+                  </tr>
+                </thead>
+                <tbody id="tbodytr">
+                  <!-- Rows will be dynamically added here via JavaScript or server-side rendering -->
+                </tbody>
+                
+              </table>
+              <button id="closeButton2">Close</button>
+            
+          </div>
+        <div class="studentsregistrations" id="studentsregistrationsrow">
+          <h1>Approve Student Registration Requests</h1>
+          <ul id="pendingList" ></ul>
+          <button id="studentRegClose">close</button>
+
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="../index.js" type="module"></script>
+</body>
+</html>

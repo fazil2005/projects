@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: outfit;
+   
+}
+body {
+    font-family: outfit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebebeb;
+}
+
+.title {
+    margin: 20px 0;
+}
+
+.main {
+    border: 8px solid #dddddd;
+    border-radius: 24px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px; /* Ensures the main container doesn’t exceed 800px width */
+    
+    
+}
+
+.name {
+    display: flex;
+    font-size: 32px;
+    font-weight: 700;
+    padding: 8px 16px;
+    color: #7e7e7e;
+    background: transparent;
+}
+
+.name span {
+    color: #bbb;
+    
+}
+
+.name p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #7e7e7e;
+    flex-grow: 1;
+    border: none;
+    margin: 0px 12px;
+    outline: none;
+    background-color: transparent;
+    font-weight: lighter;
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 0, 0.432);
+    width: 100%;
+    background-image: url('https://www.shutterstock.com/image-photo/shocked-black-lady-summer-outfit-600nw-1980098198.jpg');
+    background-size: cover; /* Ensure background image covers the container */
+    background-position: center; /* Center the background image */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.message-left, .message-right {
+    list-style: none;
+    padding: 8px 12px;
+    margin: 12px;
+    max-width: 250px;
+    font-size: 18px;
+    word-break: break-all;
+}
+
+.message-left {
+    border-radius: 20px 20px 20px 0px;
+    align-self: flex-start;
+    background-color: #fff;
+    box-shadow: -2px 2px 4px #dcdcdc;
+}
+
+.message-right {
+    border-radius: 20px 20px 0px 20px;
+    align-self: flex-end;
+    background-color: #2d2d2d;
+    box-shadow: 2px 2px 4px #dcdcdc;
+    color: #f6f6f6;
+}
+
+.message-left p span,
+.message-right p span {
+    display: block;
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.feedback {
+    font-style: italic;
+    font-size: 14px;
+    padding: 0px 16px 16px 16px;
+    color: #2d2d2d;
+    text-align: center;
+}
+
+.message-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px; /* Ensure form doesn’t exceed 400px width */
+    margin: 0 auto; /* Center the form horizontally */
+    
+}
+
+.message-input {
+    flex-grow: 1;
+    height: 48px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    padding: 0 12px;
+   
+}
+
+.send-button {
+    height: 48px;
+    font-size: 16px;
+    border: none;
+    padding: 0px 20px;
+    outline: none;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.v-divider {
+    height: 48px;
+    width: 2px;
+    background-color: #f6f6f6;
+}
+
+.client-total {
+    margin: 20px 0;
+    color: #7e7e7e;
+    font-weight: 700;
+}
+
+.usernamePopup {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    width: 90%; /* Adjusts to screen size */
+    max-width: 800px; /* Ensures the popup doesn’t exceed 400px width */
+   background-image: url('https://img.freepik.com/free-photo/happy-teenage-girl-with-curly-hair-holds-modern-mobile-phone-takeout-coffee-orders-taxi-via-online-application-types-text-message-wears-yellow-clothing-people-modern-lifestyle-technology_273609-27928.jpg');
+    height: 400px; /* Allows height to adjust automatically */
+    max-height: 300px; /* Prevents the popup from getting too tall */
+    gap: 10px;
+    padding: 20px; /* Adds some padding inside the popup */
+}
+
+.usernamePopup h1 {
+    color: white;
+    text-align: left;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.usernamePopup input {
+    width: 40%; /* Adjusts to screen size */
+    border-radius: 24px;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    outline: none;
+    cursor: pointer;
+}
+
+.usernamePopup button {
+    width: 40%; /* Adjusts to screen size */
+    outline: none;
+    border-radius: 24px;
+    padding: 5px 10px;
+    font-weight: bold;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid white;
+}
+
+/* Media queries for responsive design */
+
+@media(max-width: 768px) {
+    .name {
+        font-size: 28px;
+    }
+
+    .name p {
+        font-size: 20px;
+    }
+
+    .message-left, .message-right {
+        max-width: 200px; /* Adjusted for smaller screens */
+    }
+
+    .message-form {
+        width: 100%;
+        max-width: 100%; /* Full width on small screens */
+    }
+
+    .usernamePopup {
+        width: 100%;
+        height: 400px;
+        max-height: 400px; /* Allows the popup to grow a bit more */
+    }
+}
+
+@media(max-width: 430px) {
+    .main {
+        width: 100%;
+    }
+
+    .name {
+        font-size: 24px;
+    }
+
+    .name p {
+        font-size: 18px;
+    }
+
+    .message-left, .message-right {
+        max-width: 180px; /* Further adjusted for very small screens */
+    }
+
+    .message-input, .send-button {
+        font-size: 14px;
+        height: 40px; /* Slightly smaller height for better fit */
+    }
+
+    .feedback {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="adminpage">
+      <div class="adminloginsection">
+        <h1>Admin Login</h1>
+        <form
+          class="logininput"
+          action="adminpage.html"
+          method="get"
+          id="formadmin"
+        >
+          <input
+            type="email"
+            id="emailadmin"
+            name="email"
+            placeholder="Enter email"
+            required
+          />
+          <input
+            type="password"
+            id="passwordadmin"
+            name="password"
+            placeholder="Enter password"
+            required
+          />
+          <span id="erroradmin"></span>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    <script src="../allpages/gym.js"></script>
+  </body>
+</html>

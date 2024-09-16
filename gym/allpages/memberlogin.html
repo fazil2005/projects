@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="adminpage">
+      <div class="adminloginsection">
+        <h1>memberlogin</h1>
+        <form class="logininput" id="staffLoginForm">
+          <input type="text" placeholder="Enter name" id="staffname" required />
+          <input
+            type="password"
+            placeholder="Enter password"
+            id="staffpassword"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+        <div id="loginmessagestaff" style="color: red"></div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"></script>
+    <!-- Custom script for login functionality -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        child,
+        get,
+      } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCGJ4cYRm7ozGgcJs3xuzKkMkLuXjpbN3s",
+        authDomain: "gymapp-265a4.firebaseapp.com",
+        databaseURL: "https://gymapp-265a4-default-rtdb.firebaseio.com",
+        projectId: "gymapp-265a4",
+        storageBucket: "gymapp-265a4.appspot.com",
+        messagingSenderId: "1047503514206",
+        appId: "1:1047503514206:web:c675f147e59569761422cf",
+        measurementId: "G-MRGV7GL8X4",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
+
+      const authenticateStaff = (staffName, staffPassword) => {
+        const dbref = ref(db);
+        const staffRef = child(dbref, "newstaff");
+
+        get(staffRef)
+          .then((snapshot) => {
+            let staffAuthenticated = false;
+            snapshot.forEach((staffSnapshot) => {
+              const staffData = staffSnapshot.val();
+              if (
+                staffData.name === staffName &&
+                staffData.password === staffPassword
+              ) {
+                localStorage.setItem("staffname", staffData.name);
+                localStorage.setItem("stafftiming", staffData.timing);
+                window.location.href = "memberpage.html";
+                staffAuthenticated = true;
+                return;
+              }
+            });
+            if (!staffAuthenticated) {
+              document.getElementById("loginmessagestaff").textContent =
+                "Invalid username or password";
+            }
+          })
+          .catch((error) => {
+            console.log("error fetching", error);
+            document.getElementById("loginmessagestaff").textContent =
+              "ErrorFetching";
+          });
+      };
+      document.addEventListener("DOMContentLoaded", () => {
+        const staffloginForm = document.getElementById("staffLoginForm");
+        staffloginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const staffName = document.getElementById("staffname").value;
+          const staffPassword = document.getElementById("staffpassword").value;
+          authenticateStaff(staffName, staffPassword);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <div class="staffpage">
+      <h1 id="gymstaffname">Loading...</h1>
+      <p id="gymstafftiming">Your Timing Loading..</p>
+
+      <button id="seeallmembers">See all Members</button>
+    </div>
+    <div class="allmembersname" id="allmemberspopup">
+      <div class="left">
+        <table>
+          <thead>
+            <tr>
+              <th>NAME</th>
+            </tr>
+          </thead>
+          <tbody id="membertbody"></tbody>
+        </table>
+      </div>
+      <div class="right">
+        <button id="closeememberpopup">close</button>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"></script>
+    <!-- Custom script for login functionality -->
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        child,
+        get,
+      } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCGJ4cYRm7ozGgcJs3xuzKkMkLuXjpbN3s",
+        authDomain: "gymapp-265a4.firebaseapp.com",
+        databaseURL: "https://gymapp-265a4-default-rtdb.firebaseio.com",
+        projectId: "gymapp-265a4",
+        storageBucket: "gymapp-265a4.appspot.com",
+        messagingSenderId: "1047503514206",
+        appId: "1:1047503514206:web:c675f147e59569761422cf",
+        measurementId: "G-MRGV7GL8X4",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const db = getDatabase();
+        let membername = [];
+        let tbodymember = document.getElementById("membertbody");
+
+        const addnamerecords = (key, name) => {
+          let memberrow = document.createElement("tr");
+          let membertd = document.createElement("td");
+
+          membertd.innerHTML = `<h5 id="name-${key}">${name}</h5>`;
+
+          memberrow.append(membertd);
+          tbodymember.appendChild(memberrow);
+        };
+
+        const selectAllDataOnce = () => {
+          const dbRef = ref(db);
+          get(child(dbRef, "addMember"))
+            .then((snapshot) => {
+              membername = [];
+              snapshot.forEach((childSnapshot) => {
+                membername.push({
+                  key: childSnapshot.key,
+                  ...childSnapshot.val(),
+                });
+              });
+              allRecords();
+            })
+            .catch((error) => {
+              console.error("Error fetching data: ", error);
+            });
+        };
+
+        const allRecords = () => {
+          tbodymember.innerHTML = "";
+          membername.forEach((employee) => {
+            addnamerecords(employee.key, employee.name);
+          });
+        };
+
+        selectAllDataOnce();
+      });
+
+      const allmembersnamePopup = document.getElementById("allmemberspopup");
+      const closeallmembersPopupButton =
+        document.getElementById("closeememberpopup");
+      const seeAllMembersButton = document.getElementById("seeallmembers");
+
+      seeAllMembersButton.addEventListener("click", () => {
+        allmembersnamePopup.style.display = "flex";
+
+        closeallmembersPopupButton.addEventListener("click", () => {
+          allmembersnamePopup.style.display = "none";
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const staffname = localStorage.getItem("staffname");
+        const staffTiming = localStorage.getItem("stafftiming");
+        if (staffname) {
+          document.getElementById(
+            "gymstaffname"
+          ).textContent = `WelcomeBack,${staffname}`;
+        } else {
+          document.getElementById("gymstaffname").textContent =
+            "Staff name not found";
+        }
+
+        if (staffTiming) {
+          document.getElementById(
+            "gymstafftiming"
+          ).textContent = `Your timing is, ${staffTiming}`;
+        } else {
+          document.getElementById("gymstafftiming").textContent =
+            "Staff name not found";
+        }
+      });
+    </script>
+  </body>
+</html>

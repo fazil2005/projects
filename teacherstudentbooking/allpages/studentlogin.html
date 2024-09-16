@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>studentLogin</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="logincontainer">
+      <div class="formcontroller">
+        <form id="studentLogin">
+          <h1>StudentsLoginForm</h1>
+          <label class="nameLabel">name</label>
+          <input
+            type="text"
+            placeholder=" Enter your name"
+            required
+            id="studentregname"
+          />
+          <label>password</label>
+          <input
+            type="password"
+            placeholder="  Enter your password"
+            required
+            id="studentregpassword"
+          />
+          <p id="errorstudent"></p>
+          <button type="submit">Login</button>
+        </form>
+        <h3>Don't have an Account?</h3>
+        <a href="studentregister.html">RegisterHere</a>
+
+        <a href="../index.html" class="backtohome"
+          ><i class="fa-solid fa-arrow-left"></i
+        ></a>
+      </div>
+    </div>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        child,
+        get,
+      } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+      // Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAnbX2WB8hpxd46wPlop0aXMsU4bVqcAZc",
+        authDomain: "teacherstudentbooking.firebaseapp.com",
+        databaseURL:
+          "https://teacherstudentbooking-default-rtdb.firebaseio.com",
+        projectId: "teacherstudentbooking",
+        storageBucket: "teacherstudentbooking.appspot.com",
+        messagingSenderId: "704160360811",
+        appId: "1:704160360811:web:f221415bf3f71ac805442e",
+        measurementId: "G-Q5WXBMHL3E",
+      };
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase();
+      const authenticateStudent = (username, password) => {
+        const dbref = ref(db);
+        const studentRef = child(dbref, "approvedStudents");
+
+        get(studentRef)
+          .then((snapshot) => {
+            let isAuthenticated = false; // Fixed variable name for readability
+            snapshot.forEach((studentSnapshot) => {
+              const studentData = studentSnapshot.val();
+
+              if ( studentData.name === username && studentData.password === password) {
+
+                isAuthenticated = true; // Updated to correct variable
+                // Redirect only if authentication is successful
+                localStorage.setItem("studentname", studentData.name || "");
+
+                window.location.href = "studentpage.html";
+                return;
+              }
+            });
+
+            if (!isAuthenticated) {
+              // Fixed variable name here
+              document.getElementById("errorstudent").textContent =
+                "Invalid Credintial";
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching student data:", error); // Updated log message for clarity
+          });
+      };
+
+      // Event listener for form submission
+      document.addEventListener("DOMContentLoaded", () => {
+        const loginForm = document.getElementById("studentLogin");
+        loginForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+
+          const username = document.getElementById("studentregname").value;
+          const password = document.getElementById("studentregpassword").value;
+
+          authenticateStudent(username, password);
+        });
+      });
+    </script>
+  </body>
+</html>

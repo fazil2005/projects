@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Page</title>
+    <link rel="stylesheet" href="../style.css">
+   
+</head>
+<body>
+
+    <div class="teacherappointemnts">
+        <div class="teacherappoinmentsrow">
+            <h1 class="headingappoiments">Appointment Requests</h1>
+            <ul id="appointmentsList"></ul>
+            <p class="teacherappo" id="teacherappo">No Appointments</p>
+        <p>&copy; 2024 LLB Public School. All rights reserved.</p>
+    
+        </div>
+        
+    </div>
+  
+
+    <div id="approvalModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 ></h2>
+            <label for="appointmentDate">Date:</label>
+            <input type="date" id="appointmentDate"><br><br>
+            <label for="appointmentTime">Time:</label>
+            <input type="time" id="appointmentTime"><br><br>
+            <button id="approveButton">Approve</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getDatabase, ref, get, update } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAnbX2WB8hpxd46wPlop0aXMsU4bVqcAZc",
+            authDomain: "teacherstudentbooking.firebaseapp.com",
+            databaseURL: "https://teacherstudentbooking-default-rtdb.firebaseio.com",
+            projectId: "teacherstudentbooking",
+            storageBucket: "teacherstudentbooking.appspot.com",
+            messagingSenderId: "704160360811",
+            appId: "1:704160360811:web:f221415bf3f71ac805442e",
+            measurementId: "G-Q5WXBMHL3E"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        const teacherId = localStorage.getItem('teachername');
+        if (!teacherId) {
+            window.location.href = 'teacherlogin.html'; // Redirect if no teacher ID
+        }
+
+        const modal = document.getElementById("approvalModal");
+        const closeModal = document.querySelector(".close");
+        const approveButton = document.getElementById("approveButton");
+        const pappointemnt=document.getElementById("teacherappo")
+
+        let currentAppointmentId = null;
+
+        const openModal = (appointmentId) => {
+            currentAppointmentId = appointmentId;
+            modal.style.display = "block";
+        };
+
+        const closeModalHandler = () => {
+            modal.style.display = "none";
+        };
+
+        closeModal.addEventListener("click", closeModalHandler);
+        window.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                closeModalHandler();
+            }
+        });
+
+        approveButton.addEventListener("click", () => {
+            const date = document.getElementById('appointmentDate').value;
+            const time = document.getElementById('appointmentTime').value;
+            if (!date || !time) {
+                alert('Please select both date and time.');
+                return;
+            }
+            updateAppointment(currentAppointmentId, date, time);
+        });
+
+        const updateAppointment = (appointmentId, date, time) => {
+            const appointmentRef = ref(db, 'appointments/' + appointmentId);
+            update(appointmentRef, {
+                status: 'approved',
+                appointmentDate: date,
+                appointmentTime: time
+            })
+            .then(() => {
+                alert('Appointment approved successfully.');
+                loadAppointments(); // Refresh the list
+                closeModalHandler(); // Close the modal
+            })
+            .catch((error) => {
+                console.error("Error updating appointment:", error);
+            });
+        };
+
+        const loadAppointments = () => {
+            const appointmentsList = document.getElementById('appointmentsList');
+            appointmentsList.innerHTML = ''; // Clear existing list
+
+            const appointmentsRef = ref(db, 'appointments');
+            get(appointmentsRef)
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+                        snapshot.forEach((appointmentSnapshot) => {
+                            const appointmentData = appointmentSnapshot.val();
+                            if (appointmentData.teacherName === teacherId) {
+                                const listItem = document.createElement('li');
+                                listItem.textContent = `Appointment from Student Name: ${appointmentData.studentName} - Status: ${appointmentData.status}`;
+                               
+                                if (appointmentData.status === 'pending') {
+                                    const approveButton = document.createElement('button');
+                                    approveButton.textContent = 'Approve';
+                                    approveButton.onclick = () => openModal(appointmentSnapshot.key);
+                                    listItem.appendChild(approveButton);
+                                }
+
+                                appointmentsList.appendChild(listItem);
+                                 pappointemnt.style.display="none"
+                            }
+                        });
+                    } else {
+                        appointmentsList.textContent = 'No appointments found.';
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error fetching appointment data:", error);
+                });
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAppointments(); // Load appointments for this teacher on page load
+        });
+    </script>
+</body>
+</html>

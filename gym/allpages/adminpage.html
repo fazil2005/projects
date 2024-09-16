@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="nav" id="menubutton">
+      <button id="addMemberButton"><i class="fa-solid fa-user-plus"></i>addusers</button>
+      <button id="updateMemberButton"><i class="fa-solid fa-pen-to-square"></i>userdetails</button>
+      <button id="addstaffButton"><i class="fa-solid fa-circle-user"></i>add member</button>
+      <button id="updatestaffButton"><i class="fa-solid fa-person-circle-plus"></i>Member details</button>
+      <button id="createBillButton"><i class="fa-solid fa-file-invoice"></i>createbills</button>
+      <button id="FeeButton"><i class="fa-solid fa-money-bills"></i>fee packages</button>
+      <button id="suppliementButton"><i class="fa-solid fa-dumbbell"></i>suppliment store</button>
+      <button id="viewdietdetails"><i class="fa-solid fa-bowl-food"></i>diet details</button>
+
+     
+    </div>
+    <div class="navbutton" id="navbutton">
+      <i    class="fa-solid fa-bars" ></i>
+    </div>
+    <div id="addMemberPopup" class="popup">
+      <h2>Add user</h2>
+      <form id="addMemberForm" class="form-grid">
+        <label for="memberName">Name:</label>
+        <input type="text" id="memberName" name="memberName" required />
+
+        <label for="memberEmail">Email:</label>
+        <input type="email" id="memberEmail" name="memberEmail" required />
+
+        <label for="memberEmail">PhoneNo:</label>
+        <input type="tel" id="memberPhone" name="memberEmail" required />
+
+        <label for="memberEmail">Place</label>
+        <input type="text" id="memberPlace" name="memberEmail" required />
+
+        <label for="memberEmail">Password</label>
+        <input
+          type="password"
+          id="memberPassword"
+          name="memberEmail"
+          required
+        />
+        <label>Gender</label>
+        <select id="memberGender" required>
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+
+
+        <label>Fees/month</label>
+        <input type="number" id="memberFees" required
+        >
+
+        <button type="submit">Add user</button>
+
+      </form>
+      <button id="closePopup">Close</button>
+      </div>
+
+
+      <div class="popup2" id="updatememberpopup">
+        <div class="popup-content">
+          <table class="member-table">
+            <thead>
+              <tr>
+                <th>Sno</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Place</th>
+                <th>Password</th>
+                <th>Fees pending</th>
+                <th>Gender</th>
+                <th>Update</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody id="tbody1">
+              <!-- Rows will be dynamically added here via JavaScript or server-side rendering -->
+            </tbody>
+          </table>
+          <button id="closePopup2">Close</button>
+        </div>
+      </div>
+      <div class="feepackages" id="feepackages">
+        <h1>Legends Gym Fee packages</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Fees</th>
+            
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>1000</td>
+            </tr>
+
+            <tr>
+              <td>3</td>
+              <td>1500</td>
+            </tr>
+
+            <tr>
+              <td>4</td>
+              <td>2000</td>
+            </tr>
+
+            <tr>
+              <td>5</td>
+              <td>2500</td>
+            </tr>
+
+
+
+          </tbody>
+        </table>
+       <button id="feepackageclose">close</button>
+      </div>
+
+
+      <div class="dietdetails" id="dietdetailspopup">
+        <div class="buttons">
+          <h1>Type</h1>
+          <button id="slimDetails">Slim</button>
+          <button id="mediumDetails">Medium</button>
+          <button id="fatDetails">Fat</button>
+        </div>
+        <div class="closebutton">
+          <i id="closetagpopup" class="fa-solid fa-xmark"></i>
+        </div>
+        
+      </div>
+      
+      
+      <div class="dietdetailsslim" id="dietdetailsslim">
+        <div class="detailslim">
+          <h1>Diet Tips for a Slim Body</h1>
+          <ul>
+              <li>
+                Balanced Macronutrients: <span>Include lean proteins, complex carbs, and healthy fats.</span></li>
+              <li>
+                Portion Control:<span>Use smaller plates and eat slowly to avoid overeating.</span></li>
+              <li>
+                Hydration:<span>Drink plenty of water throughout the day.</span></li>
+              <li>
+                Healthy Snacks:<span>Choose fruits, yogurt, and nuts over processed snacks.</span></li>
+              <li>
+                Limit Processed Foods:<span>Cut back on sugary and highly processed items.</span></li>
+              <li>
+                Regular Exercise: <span>Combine diet with a mix of cardio, strength, and flexibility exercises.</span></li>
+          </ul>
+        </div>
+        <div class="closebutton">
+          <i id="closetagslim" class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+
+
+
+      <div class="dietdetailsmedium" id="dietdetailsmedium">
+        <div class="detailslim">
+            <h1>Diet Tips for a Medium Body Type</h1>
+            <ul>
+                <li>Balanced Macronutrients: <span>Incorporate a balance of lean proteins, whole grains, and healthy fats to support overall health and muscle maintenance.</span></li>
+                <li>Moderate Portion Sizes: <span>Eat until satisfied, not full. Use portion control to maintain a balanced calorie intake.</span></li>
+                <li>Consistent Hydration: <span>Ensure you drink plenty of water throughout the day to stay hydrated and support metabolic processes.</span></li>
+                <li>Nutritious Snacks: <span>Opt for snacks like fresh fruit, nuts, and yogurt to keep energy levels stable and avoid empty-calorie foods.</span></li>
+                <li>Limit Added Sugars and Processed Foods: <span>Avoid foods high in added sugars and unhealthy fats to maintain energy levels and support overall wellness.</span></li>
+                <li>Regular Exercise Routine: <span>Combine cardio, strength training, and flexibility exercises to support a balanced physique and overall health.</span></li>
+            </ul>
+        </div>
+        <div class="closebutton">
+            <i id="closetagmedium" class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+
+
+    <div class="dietdetailsfat" id="dietdetailsfat">
+      <div class="detailslim">
+          <h1>Diet Tips for Reducing Body Fat</h1>
+          <ul>
+              <li>Increase Protein Intake: <span>Include lean meats, fish, eggs, and plant-based proteins to enhance muscle mass and satiety.</span></li>
+              <li>Focus on Fiber: <span>Eat more vegetables, fruits, and whole grains to aid digestion and control appetite.</span></li>
+              <li>Control Portion Sizes: <span>Be mindful of portion sizes to maintain a calorie deficit necessary for fat loss.</span></li>
+              <li>Hydrate Well: <span>Drink plenty of water throughout the day to support metabolism and help control hunger.</span></li>
+              <li>Avoid Sugary Foods: <span>Minimize intake of sugary snacks and beverages to reduce empty calories and manage insulin levels.</span></li>
+              <li>Incorporate Healthy Fats: <span>Include sources like avocados, nuts, and olive oil to support overall health and satiety.</span></li>
+              <li>Stay Active: <span>Combine a balanced diet with regular exercise, including both cardio and strength training, to promote fat loss.</span></li>
+          </ul>
+      </div>
+      <div class="closebutton">
+          <i id="closetagfat" class="fa-solid fa-xmark"></i>
+      </div>
+  </div>
+
+  <div class="supplimentstore" id="supplimentstorepopup">
+    <div class="cards">
+      <img src="https://cdn.nutrabay.com/wp-content/uploads/2023/06/NB-NUT-1061-05-01.jpg" alt="">
+      <p>₹1,769</p>
+      <h2>Nutrabay Gold 100% Whey Protein Concentrate</h2>
+    </div>
+    <div class="cards">
+      <img src="https://cdn2.nutrabay.com/uploads/product/featured_image/product-2643-featured_image-Labrada_Muscle_Mass_Gainer.jpg" alt="">
+      <p>₹1199</p>
+      <h2>Labrada Muscle Mass Gainer</h2>
+    </div>
+    <div class="cards">
+      <img src="https://cdn2.nutrabay.com/uploads/product/featured_image/product-106-featured_image-Wellversed_Wellcore__Micronised_Creatine_Monohydrate.jpg" alt="">
+      <p>₹599</p>
+      <h2>Wellversed (Wellcore) - Micronised Creatine Monohydrate</h2>
+    </div>
+    <div class="cards">
+      <img src="https://cdn2.nutrabay.com/uploads/variant/images/variant-29036-featured_image-MuscleBlaze_Creatine_Monohydrate_Cre_AMP__100_gm_022_Lb_Unflavoured.jpg" alt="">
+      <p>₹499</p>
+      <h2>MuscleBlaze Creatine Monohydrate  </h2>
+    </div>
+    <div class="cards">
+      <img src="https://cdn.nutrabay.com/wp-content/uploads/2023/04/NB-MBZ-1001-06-01.jpg" alt="">
+      <p>₹2399</p>
+      <h2>MuscleBlaze Whey Protein  </h2>
+    </div>
+     <div class="cards">
+      <img src="https://cdn.nutrabay.com/wp-content/uploads/2023/05/NB-MUT-1016-27-01.jpg" alt="">
+      <p>₹4599</p>
+      <h2>Muscletech Performance Series Nitrotech Ripped </h2>
+    </div>
+    <button id="supplimentClose">Close</button>
+
+  </div>
+  <div class="createbills" id="createbills">
+    <div class="billsection printable">
+        <p id="datebill">Date</p>
+        <h1>CreateBill</h1>
+        <label>Name:<input type="text" id="NameInput"></label>
+        <label>Place:<input type="text" id="PlaceInput"></label>
+        <label>Fees/Month:<input type="text" id="FeesInput"></label>
+        <label>Phone:<input type="text" id="PhoneInput"></label>
+        <button id="searchButton">search</button>
+        <button id="createBill">Create Bill</button>
+    </div>
+    <div class="closesections">
+      <i id="closetagbill" class="fa-solid fa-xmark"></i>
+  </div>
+
+</div>
+
+<div class="addstaff" id="addstaffpopup">
+   <form id="addstaffForm" class="leftstaff" >
+    <h1>Add Member</h1>
+      <label>Name: <input type="text" id="namestaff" required></label>
+      <label>Age: <input type="text" id="agestaff" required></label>
+      <label >Phone <input type="text" id="phonestaff" required></label>
+      <label>Timeing: <input type="text" id="timeingtaff" required></label>
+      <label>Place: <input type="text" id="placestaff" required></label>
+      <label>Password: <input type="text" id="passwordstaff" required></label>
+       <button type="submit" id="addstaff">Add Member</button>
+       <button id="closestaffpopup">Close</button>
+     </div>
+
+     <div class="staffdetails" id="staffdetails">
+      <div class="staffleft">
+        <table class="staff-table">
+          <thead>
+            <tr>
+              <th>Sno</th>
+              <th>Name</th>
+              <th>Timing</th>
+              <th>Phone</th>
+              <th>Place</th>
+              <th>Password</th>
+              <th> Delete</th>
+              <th> Update</th>
+            </tr>
+          </thead>
+          <tbody id="tbodystaff">
+            <!-- Rows will be dynamically added here via JavaScript or server-side rendering -->
+          </tbody>
+        </table>
+        <button id="closestaffdetails">Closes</button>
+
+      </div>
+     </div>
+
+
+      
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="../gym.js"></script>
+
+<script>
+    
+
+</script>
+  </body>
+</html>

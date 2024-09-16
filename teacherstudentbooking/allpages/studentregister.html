@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Register</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="logincontainer" id="logincontainer">
+        <div class="formcontroller" id="formcontrollerreg">
+            <form id="registrationForm" onsubmit="return registerStudent(event)">
+                <h1>Student Registration Form</h1>
+                <label for="studentName">Name</label>
+                <input type="text" placeholder="Enter your name" id="studentName" required>
+                
+                <label for="studentAge">Age</label>
+                <input type="text" placeholder="Enter your age" id="studentAge" required>
+                <p id="errorAge"></p>
+
+                <label for="studentPhone">Phone</label>
+                <input type='text' placeholder="Enter your phone" id="studentPhone" required>
+                <p id="errorPhone"></p>
+                
+                <label for="studentPlace">Place</label>
+                <input type="text" placeholder="Enter your place" id="studentPlace" required>
+                
+                <label for="studentEmail">Email</label>
+                <input type="email" placeholder="Enter your email" id="studentEmail" required>
+                
+                <label for="studentPassword">Password</label>
+                <input type="password" placeholder="Enter your password" id="studentPassword" required>
+                <p id="errorPassword"></p>
+                
+                <button type="submit">Register</button>
+            </form>
+            <a href="studentlogin.html">
+                <h3>Already have an account?</h3>
+            </a>
+            <a href="../index.html" class="backtohome"><i class="fa-solid fa-arrow-left"></i></a>
+        </div>
+    </div>
+
+    <div class="successPopup" id="successPopupreg">
+      <div class="successPopup-content">
+        <div class="imgbox">
+          <img src="https://cdn-icons-png.freepik.com/512/5610/5610944.png" alt="">
+        </div>
+        <div class="title">
+          <h3>Success!</h3>
+        </div>
+        <p class="paragraph">Wait for the admin approval within 24 hours for login.</p>
+        <form action="">
+          <a href="studentlogin.html" class="buttonokay">OKAY</a>
+        </form>
+      </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+        import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js';
+
+        // Firebase project configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAnbX2WB8hpxd46wPlop0aXMsU4bVqcAZc",
+            authDomain: "teacherstudentbooking.firebaseapp.com",
+            databaseURL: "https://teacherstudentbooking-default-rtdb.firebaseio.com",
+            projectId: "teacherstudentbooking",
+            storageBucket: "teacherstudentbooking.appspot.com",
+            messagingSenderId: "704160360811",
+            appId: "1:704160360811:web:f221415bf3f71ac805442e",
+            measurementId: "G-Q5WXBMHL3E"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Register student function
+        window.registerStudent = async function(event) {
+            event.preventDefault();
+
+            const studentName = document.getElementById("studentName").value;
+            const studentAge = document.getElementById("studentAge").value;
+            const studentPhone = document.getElementById("studentPhone").value;
+            const studentPlace = document.getElementById("studentPlace").value;
+            const studentEmail = document.getElementById("studentEmail").value;
+            const studentPassword = document.getElementById("studentPassword").value;
+            const successPopup = document.getElementById("successPopupreg");
+            const formReg = document.getElementById("logincontainer");
+            const formControll = document.getElementById("registrationForm");
+            const regError=document.getElementById("errorReg")
+
+            if (!validatePhoneNumber(studentPhone) || !validatePassword(studentPassword) || !validateAge(studentAge)) {
+                return false; // Prevent form submission
+            }
+
+            try {
+                const newStudentRef = ref(db, 'pendingStudents/' + Date.now());
+                await set(newStudentRef, {
+                    name: studentName,
+                    age: studentAge,
+                    phone: studentPhone,
+                    place: studentPlace,
+                    email: studentEmail,
+                    password: studentPassword,
+                    approved: false
+                });
+                successPopup.style.display = "flex";
+                formReg.style.display = "none";
+                formControll.reset();
+            } catch (error) {
+                console.error('Error adding document: ', error);
+            }
+        };
+
+        // Validate phone number: must be exactly 10 digits
+        function validatePhoneNumber(phone) {
+            const phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                document.getElementById("errorPhone").textContent="Phone number must be exactly 10 digits."
+                return false;
+            }
+            document.getElementById("errorPhone").textContent=""
+            return true;
+        }
+
+        // Validate password: must contain exactly two digits
+        function validatePassword(password) {
+            if (password.length < 4 || password.length > 9) {
+                document.getElementById("errorPassword").textContent = "Password must be between 4 and 9 characters.";
+                return false;
+            }
+            document.getElementById("errorPassword").textContent = "";
+            return true;
+        }
+
+        // Validate age: must be exactly two digits
+        function validateAge(age) {
+            const agePattern = /^\d{2}$/;
+            if (!agePattern.test(age)) {
+                document.getElementById("errorAge").textContent="Age must be exactly two digits."
+                return false;
+            }
+            document.getElementById("errorAge").textContent=""
+            return true;
+        }
+    </script>
+
+</body>
+</html>
